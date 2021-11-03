@@ -1,0 +1,55 @@
+html, body
+  position relative
+  overflow-x hidden
+  width 100%
+  min-height 100vh
+
+body
+  padding 0
+  margin 0
+
+#__nuxt
+#__layout
+  min-height 100%
+
+ul
+  list-style: none
+
+a
+  text-decoration: none
+
+em
+  font-style normal
+
+img
+  display block
+  width 100%
+  height auto
+
+.container
+  position relative
+  height auto
+
+.custom-slider
+  .v-slider
+    &__track-container
+      height 10px
+    &__thumb
+      left -15px
+      width 30px
+      height 30px
+      &:before
+        left -5px
+        top -5px
+        width 40px
+        height 40px
+      &-label
+        &-container
+          span
+            font-family 'AXIS Std'
+            font-weight bold
+            font-size 16px
+    &__tick-label
+      top 20px !important
+      font-family 'AXIS Std'
+      font-weight bold
