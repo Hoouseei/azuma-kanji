@@ -1,0 +1,30 @@
+[
+  {
+      "id": "hogehoge1",
+      "character": "東",
+      "reading": "トウ　ひがし　あずま",
+      "image": "hogehoge/image.png",
+      "animation": "hogehoge/animation.gif"
+  },
+  {
+      "id": "hogehoge2",
+      "character": "東",
+      "reading": "トウ　ひがし　あずま",
+      "image": "hogehoge/image.png",
+      "animation": "hogehoge/animation.gif"
+  },
+  {
+      "id": "hogehoge3",
+      "character": "東",
+      "reading": "トウ　ひがし　あずま",
+      "image": "hogehoge/image.png",
+      "animation": "hogehoge/animation.gif"
+  },
+  {
+      "id": "hogehoge4",
+      "character": "東",
+      "reading": "トウ　ひがし　あずま",
+      "image": "hogehoge/image.png",
+      "animation": "hogehoge/animation.gif"
+  }
+]

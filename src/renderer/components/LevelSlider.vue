@@ -14,12 +14,9 @@
 </template>
 
 <script>
-import LevelManager from '~/assets/scripts/level-manager.js'
-
 export default {
-  mounted() {},
   data() {
-    const max = LevelManager.getLevelLength() - 1
+    const max = 2
     let arr = Array(max).fill('')
     arr[0] = 'かんたん'
     arr[Math.round(arr.length/2)] = 'ふつう'
@@ -32,10 +29,10 @@ export default {
   computed: {
     level: {
       get() {
-        return LevelManager.getLevel()
+        // return this.$store.level.level
       },
       set(level) {
-        LevelManager.setLevel(level)
+        this.$store.commit('level/setLevel', level)
       }
     }
   },
