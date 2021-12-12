@@ -3,8 +3,8 @@ import BrowserWinHandler from './BrowserWinHandler'
 const winHandler = new BrowserWinHandler({
   height: 800,
   width: 1280,
-  // frame: false,
-  // fullscreen: true,
+  frame: false,
+  fullscreen: true,
 })
 
 winHandler.onCreated(_browserWindow => {

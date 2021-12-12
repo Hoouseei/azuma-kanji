@@ -1,5 +1,5 @@
 <template lang="pug">
-v-main
+v-main(@mousedown="onMouseDown", @mousemove="onMouseMove", @mouseup="onMouseUp")
   v-card
     v-navigation-drawer(fixed, floating, permanent, clipped, color="transparent", )
       v-list(dense, nav).index-list
@@ -49,6 +49,32 @@ export default {
       return this.$store.getters['characters/getAll']
     }
   },
+
+  methods: {
+    onMouseDown(e) {
+      this.isGrabing = true
+
+      this.pos = {
+        left: this.$refs.scrollable.scrollLeft,
+        top: this.$refs.scrollable.scrollTop,
+        x: e.clientX,
+        y: e.clientY,
+      }
+    },
+
+    onMouseMove(e) {
+      if(!this.isGrabing) return
+
+      const dy = e.clientY - this.pos.top
+      const dx = e.clientX - this.pos.left
+      this.$refs.scrollable.scrollTop = this.pos.y - dy
+      this.$refs.scrollable.scrollLeft = this.pos.x - dx
+    },
+
+    onMouseUp(e) {
+      this.isGrabing = false
+    },
+  }
 }
 </script>
 

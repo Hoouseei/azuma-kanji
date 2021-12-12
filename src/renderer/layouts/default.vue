@@ -1,5 +1,5 @@
 <template lang="pug">
-  main(ref="scrollable", @mousedown="onMouseDown", @mousemove="onMouseMove", @mouseup="onMouseUp")
+  main(ref="scrollable")
     v-app(style="background-color: transparent")
       v-app-bar(app, color="transparent", elevation=0)
         v-btn.close-btn(absolute, @click='quit') おしまい
@@ -13,30 +13,6 @@ export default {
   methods: {
     quit() {
       ipcRenderer.send('quit')
-    },
-
-    onMouseDown(e) {
-      this.isGrabing = true
-
-      this.pos = {
-        left: this.$refs.scrollable.scrollLeft,
-        top: this.$refs.scrollable.scrollTop,
-        x: e.clientX,
-        y: e.clientY,
-      }
-    },
-
-    onMouseMove(e) {
-      if(!this.isGrabing) return
-
-      const dy = e.clientY - this.pos.top
-      const dx = e.clientX - this.pos.left
-      this.$refs.scrollable.scrollTop = this.pos.y - dy
-      this.$refs.scrollable.scrollLeft = this.pos.x - dx
-    },
-
-    onMouseUp(e) {
-      this.isGrabing = false
     },
   }
 }
