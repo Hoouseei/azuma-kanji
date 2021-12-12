@@ -42,8 +42,8 @@ const macOS = {
 }
 
 module.exports = {
-  productName: 'べんきょう・とけい',
-  appId: 'com.example.app',
+  productName: 'べんきょう・かんじ',
+  appId: 'com.azuma-kanji.app',
   artifactName: 'setup-${version}.${ext}',
   directories: {
     output: 'build'
