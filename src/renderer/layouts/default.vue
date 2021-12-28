@@ -9,6 +9,10 @@
 </template>
 
 <script>
+const {
+    ipcRenderer
+} = require("electron")
+
 export default {
   methods: {
     quit() {
@@ -20,6 +24,7 @@ export default {
 
 <style lang="stylus">
 body
+  overflow hidden
   background-color #d4dad4
   font-family: 'Noto Sans CJK JP'
   font-weight bold
@@ -27,7 +32,6 @@ body
   color #000
 
 main
-  overflow auto
   position relative
   user-select: none
   a

@@ -1,6 +1,14 @@
 <template lang="pug">
   div.wrapper
-    canvas(ref="canvas", :width="$attrs.width", :height="$attrs.height", @mousedown="onMouseDown", @mouseup="onMouseUp", @mousemove="onMouseMove")
+    canvas(ref="canvas",
+      :width="$attrs.width",
+      :height="$attrs.height",
+      @mousedown="onMouseDown",
+      @mouseup="onMouseUp",
+      @mousemove="onMouseMove",
+      @touchmove="onTouchMove",
+      @touchstart="onTouchDown",
+      @touchend="onTouchUp",)
     a(href="#", @click.prevent="onClickClear").clear-btn ✕
 </template>
 
@@ -28,14 +36,38 @@ export default {
 
     onMouseMove(e) {
       if(!this.drawing) return
-      this.ctx.lineTo(e.offsetX, e.offsetY)
+      this.ctx.lineTo(e.pageX, e.pageY)
       this.ctx.stroke()
+      console.log(e.pageX, e.pageY)
     },
 
     onClickClear() {
       this.ctx.clearRect(0, 0, this.$attrs.width, this.$attrs.height)
       this.count = 0
+    },
+
+    onTouchMove(e) {
+      console.log(e)
+      const rect = this.$refs.canvas.getBoundingClientRect()
+      const mouseEvent = new MouseEvent('mousemove', {
+        clientX: e.touches[0].clientX - rect.left,
+        clientY: e.touches[0].clientY - rect.top,
+      })
+      this.onMouseMove(mouseEvent)
+    },
+
+    onTouchDown(e) {
+      this.onMouseDown(e)
+    },
+
+    onTouchUp(e) {
+      this.onMouseUp(e)
+    },
+
+    draw() {
+
     }
+
   }
 }
 </script>

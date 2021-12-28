@@ -9,7 +9,7 @@ v-main(@mousedown="onMouseDown", @mousemove="onMouseMove", @mouseup="onMouseUp")
               |{{i.title}}
 
   .category-list
-    section.category-item(v-for="i in index", :key="i.id")
+    section.category-item(v-for="i in index", :key="i.id", v-if="i.visible", :class="{visible: i.visible}")
       h1.category-title(:id="i.id")
         |{{i.title}}
       v-row.character-list(justify="space-between")
@@ -26,20 +26,21 @@ const {ipcRenderer} = require('electron');
 
 export default {
   mounted() {
-
+      this.showingCount = 0
+      this.showSection()
   },
 
   data() {
     return {
       index: [
-        {title: "ひらがな", id: "hiragana"},
-        {title: "カタカナ", id: "katakana"},
-        {title: "小学１年生", id: "ps1"},
-        {title: "小学２年生", id: "ps2"},
-        {title: "小学３年生", id: "ps3"},
-        {title: "小学４年生", id: "ps4"},
-        {title: "小学５年生", id: "ps5"},
-        {title: "小学６年生", id: "ps6"},
+        {title: "ひらがな", id: "hiragana", visible: false},
+        {title: "カタカナ", id: "katakana", visible: false},
+        {title: "小学１年生", id: "ps1", visible: false},
+        {title: "小学２年生", id: "ps2", visible: false},
+        {title: "小学３年生", id: "ps3", visible: false},
+        {title: "小学４年生", id: "ps4", visible: false},
+        {title: "小学５年生", id: "ps5", visible: false},
+        {title: "小学６年生", id: "ps6", visible: false},
       ]
     }
   },
@@ -51,7 +52,15 @@ export default {
   },
 
   methods: {
+    showSection() {
+      if(this.showingCount >= this.index.length) return
+      this.index[this.showingCount].visible = true
+      this.showingCount++
+      setTimeout(this.showSection, 500)
+    },
+    
     onMouseDown(e) {
+      return
       this.isGrabing = true
 
       this.pos = {
@@ -63,6 +72,7 @@ export default {
     },
 
     onMouseMove(e) {
+      return
       if(!this.isGrabing) return
 
       const dy = e.clientY - this.pos.top
@@ -72,6 +82,7 @@ export default {
     },
 
     onMouseUp(e) {
+      return
       this.isGrabing = false
     },
   }
@@ -81,6 +92,8 @@ export default {
 <style lang="stylus">
 main
   position relative
+  overflow auto
+  overflow-y scroll
 
   .close-btn
     top 10px
@@ -121,6 +134,7 @@ main
   &-list
     width 1100px
     margin 0 auto
+    padding-left 180px
     &:after
       content ''
       display block
@@ -136,6 +150,7 @@ main
     border-radius: 50%
     background-color #fff
     font-size 52px
+    font-weight 500
     line-height 88px
     color #000 !important
     text-align justify

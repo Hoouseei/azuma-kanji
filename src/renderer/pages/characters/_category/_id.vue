@@ -63,7 +63,9 @@ export default {
 
 <style lang="stylus">
 main
-  height 100%
+  overflow hidden
+  height 100vh
+  width 100vw
 
 .character-wrapper
   height 100%
