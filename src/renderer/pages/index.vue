@@ -33,6 +33,7 @@ export default {
   data() {
     return {
       index: [
+        {title: "漢数字", id: "kansuji", visible: false},
         {title: "ひらがな", id: "hiragana", visible: false},
         {title: "カタカナ", id: "katakana", visible: false},
         {title: "小学１年生", id: "ps1", visible: false},
@@ -101,9 +102,10 @@ main
 
 .index
   &-list
-    display flex
-    flex-direction: column
-    align-items: center
+    display grid
+    // flex-direction: column
+    // align-items: center
+    gap 10px
     height 100vh
     padding 160px 0
   &-item
@@ -132,6 +134,8 @@ main
 
 .character
   &-list
+    display grid
+    grid-template-columns: repeat(8, 80px)
     width 1100px
     margin 0 auto
     padding-left 180px

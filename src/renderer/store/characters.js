@@ -1,3 +1,4 @@
+import kansuji from '@/assets/characters/kansuji/data.json'
 import hiragana from '@/assets/characters/hiragana/data.json'
 import katakana from '@/assets/characters/katakana/data.json'
 import ps1 from '@/assets/characters/ps1/data.json'
@@ -9,6 +10,7 @@ import ps6 from '@/assets/characters/ps6/data.json'
 
 
 export const state = () => ({
+  kansuji,
   hiragana,
   katakana,
   ps1,
@@ -21,7 +23,10 @@ export const state = () => ({
 
 export const getters = {
   getAll(state) {
-    return {hiragana, katakana, ps1, ps2, ps3, ps4, ps5, ps6};
+    return {kansuji, hiragana, katakana, ps1, ps2, ps3, ps4, ps5, ps6};
+  },
+  kansuji(state) {
+    return state.kansuji
   },
   hiragana(state) {
     return state.hiragana
