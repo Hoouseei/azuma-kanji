@@ -15,7 +15,8 @@ const windowsOS = {
 const linuxOS = {
   linux: {
     icon: ICONS_DIR,
-    target: 'deb'
+    target: 'deb',
+    category: 'Education'
   }
 }
 
