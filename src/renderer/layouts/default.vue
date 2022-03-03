@@ -46,4 +46,8 @@ main
     top 10px
     right 10px
 
+  .v-main
+    overflow-y scroll
+
+
 </style>
