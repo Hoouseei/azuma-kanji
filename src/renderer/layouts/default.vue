@@ -2,7 +2,7 @@
   main(ref="scrollable")
     v-app(style="background-color: transparent")
       v-app-bar(app, color="transparent", elevation=0)
-        v-btn.close-btn(absolute, @click='quit') おしまい
+        v-btn.close-btn(v-if="$route.path === '/'", absolute, @click='quit') おしまい
         v-btn.index-btn(v-if="$route.path !== '/'", absolute, to="/", nuxt) ぜんぶ
       Nuxt
 

@@ -112,6 +112,8 @@ main
     min-height 20px !important
 
 .category
+  &-list
+    // padding-left 256px
   &-item
     margin-bottom 100px
   &-title
@@ -136,9 +138,9 @@ main
   &-list
     display grid
     grid-template-columns: repeat(8, 80px)
-    width 1100px
+    width 100vw
     margin 0 auto
-    padding-left 180px
+    padding-left 256px
     &:after
       content ''
       display block
