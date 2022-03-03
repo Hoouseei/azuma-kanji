@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "node .electron-nuxt/dev.js",
     "build": "node .electron-nuxt/build.js",
-    "build:linux": "USE_SYSTEM_FPM=true node .electron-nuxt/build.js --linux deb --arch=armv7l",
+    "build:linux": "USE_SYSTEM_FPM=true node .electron-nuxt/build.js --linux deb --armv7l",
     "build:linux2": "USE_SYSTEM_FPM=true NODE_ENV=production electron-builder build --linux deb --armv7l --config builder.config.js",
     "test": "",
     "preinstall": "node .electron-nuxt/check-engines.js",
