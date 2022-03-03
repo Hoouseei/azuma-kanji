@@ -16,7 +16,7 @@ const {
 export default {
   methods: {
     quit() {
-      ipcRenderer.send('quit')
+      if(confirm('ほんとうにおわる？')) ipcRenderer.send('quit')
     },
   }
 }
