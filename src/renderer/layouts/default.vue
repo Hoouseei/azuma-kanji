@@ -15,7 +15,9 @@ const {
 
 export default {
   methods: {
-    quit() {
+    quit(e) {
+      console.log(e.target.parentElement.classList)
+      if(!e.target.parentElement.classList.contains('clise-btn')) return
       if(confirm('ほんとうにおわる？')) ipcRenderer.send('quit')
     },
   }

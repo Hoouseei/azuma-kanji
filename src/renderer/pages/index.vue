@@ -107,13 +107,11 @@ main
     // align-items: center
     gap 10px
     height 100vh
-    padding 160px 0 0
+    padding 160px 0
   &-item
     min-height 20px !important
 
 .category
-  &-list
-    // padding-left 256px
   &-item
     margin-bottom 100px
   &-title
