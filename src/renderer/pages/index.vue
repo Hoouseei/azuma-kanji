@@ -107,7 +107,7 @@ main
     // align-items: center
     gap 10px
     height 100vh
-    padding 160px 0
+    padding 160px 0 0
   &-item
     min-height 20px !important
 

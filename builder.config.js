@@ -17,9 +17,6 @@ const linuxOS = {
     icon: ICONS_DIR,
     target: 'deb',
     category: 'Education',
-    arch: [
-      'armv7l'
-    ]
   }
 }
 
