@@ -43,7 +43,7 @@ const macOS = {
 }
 
 module.exports = {
-  productName: 'べんきょう・かんじ',
+  productName: 'azuma-kanji',
   appId: 'com.azuma-kanji.app',
   artifactName: 'setup-${version}.${ext}',
   directories: {
